@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/tdkMenuFragment">
+    <fragment
+        android:id="@+id/menuFragment2"
+        android:name="com.busrapinar.turkdilkurumuapp.view.fragment.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/actionMenuAboutus"
+            app:destination="@id/aboutusFragment" />
+        <action
+            android:id="@+id/actionMenuContact"
+            app:destination="@id/contactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutusFragment"
+        android:name="com.busrapinar.turkdilkurumuapp.view.fragment.AboutusFragment"
+        android:label="fragment_aboutus"
+        tools:layout="@layout/fragment_aboutus" >
+        <action
+            android:id="@+id/aboutUsToMenu"
+            app:destination="@id/menuFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.busrapinar.turkdilkurumuapp.view.fragment.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" >
+        <action
+            android:id="@+id/actionKatkiOneri"
+            app:destination="@id/katkiOneriFragment" />
+        <action
+            android:id="@+id/contactToMenu"
+            app:destination="@id/menuFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/katkiOneriFragment"
+        android:name="com.busrapinar.turkdilkurumuapp.view.fragment.KatkiOneriFragment"
+        android:label="fragment_katki_oneri"
+        tools:layout="@layout/fragment_katki_oneri" >
+        <action
+            android:id="@+id/katkiOneriToMenu"
+            app:destination="@id/menuFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/tdkMenuFragment"
+        android:name="com.busrapinar.turkdilkurumuapp.view.fragment.TdkMenuFragment"
+        android:label="fragment_tdk_menu"
+        tools:layout="@layout/fragment_tdk_menu" >
+        <action
+            android:id="@+id/action_tdkMenuFragment_to_menuFragment2"
+            app:destination="@id/menuFragment2" />
+    </fragment>
+</navigation>

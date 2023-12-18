@@ -1,0 +1,125 @@
+{
+  "project_info": {
+    "project_number": "681306189393",
+    "firebase_url": "https://fir-egitim-9bc30-default-rtdb.firebaseio.com",
+    "project_id": "fir-egitim-9bc30",
+    "storage_bucket": "fir-egitim-9bc30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681306189393:android:521a23cba9da29d412d270",
+        "android_client_info": {
+          "package_name": "com.busrapinar.filmleruygulamas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkYaVdyqrKHuLJfShV0YiQKmhYX8-FNas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681306189393:android:31b32204c58c6cb112d270",
+        "android_client_info": {
+          "package_name": "com.busrapinar.firebaserealtimedatabasekullanimi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkYaVdyqrKHuLJfShV0YiQKmhYX8-FNas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681306189393:android:863608a4c97e15d312d270",
+        "android_client_info": {
+          "package_name": "com.busrapinar.kisileruygulamasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkYaVdyqrKHuLJfShV0YiQKmhYX8-FNas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681306189393:android:69d41928b252f61712d270",
+        "android_client_info": {
+          "package_name": "com.busrapinar.notlaruygulamasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkYaVdyqrKHuLJfShV0YiQKmhYX8-FNas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681306189393:android:bfa6e74da443b82512d270",
+        "android_client_info": {
+          "package_name": "com.busrapinar.sozlukuygulamasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkYaVdyqrKHuLJfShV0YiQKmhYX8-FNas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681306189393:android:c09d47c968232d3212d270",
+        "android_client_info": {
+          "package_name": "com.busrapinar.turkdilkurumuapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkYaVdyqrKHuLJfShV0YiQKmhYX8-FNas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

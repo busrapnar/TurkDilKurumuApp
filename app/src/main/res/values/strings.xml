@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TurkDilKurumuApp</string>
+    <string name="turkce_sozluk">Türkçe Sözlük</string>
+    <string name="explanation">Açıklama</string>
+    <string name="turk_dil_kurumu">TÜRK DİL KURUMU</string>
+    <string name="turk_dil_kurumu_baskanligi">Türk Dil Kurumu Başkanlığı</string>
+    <string name="atasozu_deyim">Atasözleri ve Deyimler</string>
+    <string name="birlesik_kelime">Birleşik Kelimeler</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
