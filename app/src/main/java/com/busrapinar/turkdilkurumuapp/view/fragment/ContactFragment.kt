@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.busrapinar.turkdilkurumuapp.R
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class ContactFragment : Fragment() {
+class ContactFragment : BottomSheetDialogFragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

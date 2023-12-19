@@ -1,24 +1,20 @@
 package com.busrapinar.turkdilkurumuapp.view.activities
 
-import android.app.Dialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.ViewGroup
-import android.view.Window
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.cardview.widget.CardView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.busrapinar.turkdilkurumuapp.R
 import com.busrapinar.turkdilkurumuapp.data.Atasozu
 import com.busrapinar.turkdilkurumuapp.databinding.ActivityHomeBinding
+import com.busrapinar.turkdilkurumuapp.util.gone
+import com.busrapinar.turkdilkurumuapp.util.visible
 import com.busrapinar.turkdilkurumuapp.view.adapter.WordsAdapter
+import com.busrapinar.turkdilkurumuapp.view.fragment.MenuFragment
 import com.busrapinar.turkdilkurumuapp.view.viewModel.HomeViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -29,16 +25,26 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         initBinding()
         initViewModel()
         initObservers()
         setupToolbar()
+        initListeners()
         setupBottomNavigationView()
-
         viewModel.getAtasozu()
 
+    }
+
+    private fun initListeners() {
+        binding.apply {
+            rootView.setOnClickListener {
+                val fragmentManager = supportFragmentManager
+                for (fragment in fragmentManager.fragments) {
+                    fragmentManager.beginTransaction().remove(fragment).commit()
+                }
+                fragmentManager.executePendingTransactions()
+            }
+        }
     }
 
     private fun initBinding() {
@@ -46,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    private  fun initViewModel(){
+    private fun initViewModel() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
     }
 
@@ -74,7 +80,6 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setupBottomNavigationView() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)
-
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_item1 -> true
@@ -96,71 +101,42 @@ class HomeActivity : AppCompatActivity() {
                 showBottomSheetDialog()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-   /*private fun showContactDialog() {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.activity_tdkmenu)
-        //setBottomSheetItemListeners(dialog)
-        dialog.show()
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
-        dialog.window?.setGravity(Gravity.BOTTOM)
+    /*private fun showContactDialog() {
+         val dialog = Dialog(this)
+         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+         dialog.setContentView(R.layout.activity_tdkmenu)
+         //setBottomSheetItemListeners(dialog)
+         dialog.show()
+         dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+         dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
+         dialog.window?.setGravity(Gravity.BOTTOM)
 
-    }*/
+     }*/
+    private fun initNavigationView() {
+        // NavHostFragment'ı oluştur
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
-
-
-
-    private fun showBottomSheetDialog() {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_layout)
-
-        setBottomSheetItemListeners(dialog)
-
-        dialog.show()
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
-        dialog.window?.setGravity(Gravity.BOTTOM)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment, navHostFragment)
+            .setPrimaryNavigationFragment(navHostFragment)
+            .commit()
     }
 
-    private fun setBottomSheetItemListeners(dialog: Dialog) {
-        val editLayout = dialog.findViewById<LinearLayout>(R.id.layoutEdit)
-        val shareLayout = dialog.findViewById<LinearLayout>(R.id.layoutShare)
-        val uploadLayout = dialog.findViewById<LinearLayout>(R.id.layoutUpload)
-        val printLayout = dialog.findViewById<LinearLayout>(R.id.layoutPrint)
-
-        editLayout.setOnClickListener {
-            dialog.show()
-            showToast("Share is Clicked")
-        }
-
-        shareLayout.setOnClickListener {
-            dialog.dismiss()
-            showToast("Share is Clicked")
-        }
-
-        uploadLayout.setOnClickListener {
-            dialog.dismiss()
-            showToast("Upload is Clicked")
-        }
-
-        printLayout.setOnClickListener {
-            dialog.dismiss()
-            showToast("Print is Clicked")
-        }
+    private fun showBottomSheetDialog() {
+        binding.navHostFragment.visible()
+        val navHostFragment = NavHostFragment.create(R.navigation.nav_info)
+        supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, navHostFragment).commit()
     }
 
     private fun showToast(message: String) {
         Toast.makeText(this@HomeActivity, message, Toast.LENGTH_SHORT).show()
     }
-
 
 
     /*private fun populateWordList() {
